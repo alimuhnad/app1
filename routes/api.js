@@ -59,6 +59,18 @@ router.post('/addcomments', function(req, res) {
         });
   });
 
+ //اضافة مشاهدات
+   router.post('/addviews', function(req, res) {
+    let query ={_id: req.body.id}
+
+
+    Addask.findOneAndUpdate(query, { $inc: { viewsconts: 1 }},function(err, addhavecar1) {
+            if (err)
+                res.send(err)
+            
+            res.json(addhavecar1);
+        });
+    });
 
 router.post('/getcomments', function(req, res) {
 
