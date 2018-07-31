@@ -62,7 +62,7 @@ router.post('/addcomments', function(req, res) {
 
 router.post('/getcomments', function(req, res) {
 
-  Addcomments.find({askid:req.body.id}, null,{sort: {data: -1}},function(err, review) {
+  Addcomments.find({askid:req.body.askid}, null,{sort: {data: -1}},function(err, review) {
           if (err)
               res.send(err)
           res.json(review);
