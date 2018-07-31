@@ -7,7 +7,7 @@ const userSchema= new Schema({
     username:String,
     email:String,
     createdtime:String,
-    viewsconts:Number,
+    viewsconts:String,
     numberofcomments:String
 })
 
