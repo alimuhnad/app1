@@ -12,4 +12,4 @@ const userSchema= new Schema({
 })
 
 
-module.exports = mongoose.model('addcomments',userSchema)
+module.exports = mongoose.model('comments',userSchema)

@@ -4,18 +4,8 @@ var router = express.Router()
 //اعدادات المنكوديبي و api كله
 var mongoose = require('mongoose');
 const User=require('../models/users')
-const addcomments=require('../models/addcomments')
-const getcomments=require('../models/getcomments')
-const getasks=require('../models/getasks')
-const addzone=require('../models/addMzone')
-const addFMZ=require('../models/addFMZ')
-const addSUBzone=require('../models/addSUBzone')
-const addtypeofline=require('../models/addtypeofline')
-const addcrean=require('../models/addcrean')
-const Reports=require('../models/report')
-const Addcreantype=require('../models/addcreantype')
-const Addhavycarstype=require('../models/addhavycarstype')
-const addask=require('../models/addask')
+const Addcomments=require('../models/addcomments')
+const Addask=require('../models/addask')
 var Filter = require('bad-words')
 filter = new Filter();
 
@@ -24,7 +14,7 @@ mongoose.connect('mongodb://a:momo.2005@ds261521.mlab.com:61521/app1');
 const app = express()
 
 router.post('/addcomments', function(req, res) {   
-  addcomments.create({
+  Addcomments.create({
     askid:req.body.askid,
     commentbody:req.body.commentbody,
     data:req.body.data,
@@ -41,7 +31,7 @@ router.post('/addcomments', function(req, res) {
 
 
   router.post('/addask', function(req, res) {   
-    addask.create({
+    Addask.create({
         askbody:req.body.askbody,
         username:req.body.username,
         email:req.body.email,
@@ -62,7 +52,7 @@ router.post('/addcomments', function(req, res) {
 
 
   router.get('/getasks', function(req, res) {
-    getasks.find({}, null,{sort: {createdtime: -1}},function(err, review) {
+    Addasks.find({}, null,{sort: {createdtime: -1}},function(err, review) {
         if (err)
             res.send(err)
         res.json(review);
@@ -71,7 +61,7 @@ router.post('/addcomments', function(req, res) {
 
 router.post('/getcomments', function(req, res) {
 
-  getcomments.find({askid:req.body.id}, null,{sort: {data: -1}},function(err, review) {
+  Addcomments.find({askid:req.body.id}, null,{sort: {data: -1}},function(err, review) {
           if (err)
               res.send(err)
           res.json(review);

@@ -12,4 +12,4 @@ const userSchema= new Schema({
 })
 
 
-module.exports = mongoose.model('addask',userSchema)
+module.exports = mongoose.model('ask',userSchema)
