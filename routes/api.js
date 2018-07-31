@@ -52,12 +52,13 @@ router.post('/addcomments', function(req, res) {
 
 
   router.get('/getasks', function(req, res) {
-    Addasks.find({},function(err, review) {
-        if (err)
-            res.send(err)
-        res.json(review);
-    });
- });
+    Addask.find(function(err, review) {
+            if (err)
+                res.send(err)
+            res.json(review);
+        });
+  });
+
 
 router.post('/getcomments', function(req, res) {
 
