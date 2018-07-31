@@ -52,7 +52,7 @@ router.post('/addcomments', function(req, res) {
 
 
   router.get('/getasks', function(req, res) {
-    Addask.find(function(err, review) {
+    Addask.find({}, null,{sort: {createdtime: -1}},function(err, review) {
             if (err)
                 res.send(err)
             res.json(review);
